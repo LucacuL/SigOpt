@@ -8,7 +8,6 @@ import torch
 from torchvision.datasets import MNIST
 from torchvision.transforms import Compose, ToTensor, Normalize
 
-from plot_functions import plt_reconstructed, plt_latent
 from architect import AE, VAE
 from losses import Parallel_Loss, VAE_Loss
 from models import ParallelAE, Variational

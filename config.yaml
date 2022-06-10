@@ -1,0 +1,79 @@
+model:
+  dataset_path: "./" #dummy dataset.
+  entry_point: "opt.py" # The python file name that includes the function for evaluating the suggestions
+  function_name: "run_hyperopt"
+  copy_data: true # If the data should be copied in the workspace
+git_options:
+  git_uri: "git@github.com:LucacuL/SigOpt.git"
+  branch: "main" # Either branch or version can be used. Using the option version allows to load specific tags
+experiment:
+  use_local_workspace: false # If a local experiment folder should be created in root folder or a dedicated workspace
+                            # directory (https://wiki.bwhpc.de/e/Workspace)
+  experiment_name: "vae"
+  cluster: "bwunicluster"  # Either "bwunicluster" or "horeka"
+  number_chain_jobs: 1 # How many times should a job - the suggestion evaluation - be chained together. It is used to
+                       # cirumvent the problem of time outs in the cluster
+  multimetric_experiment: false
+parameters:
+  - name: annealing
+    type: categorical
+    categorical_values:
+      - 'cyclic'
+      - 'monotonic'
+      - 'none'
+  - name: batch
+    type: int
+    bounds:
+      min: 4
+      max: 9
+  - name: cycle
+    type: int
+    bounds:
+      min: 1
+      max: 10
+  - name: emb_dim
+    type: int
+    bounds:
+      min: 4
+      max: 12
+  - name: epochs
+    type: int
+    bounds:
+      min: 50
+      max: 200      
+  - name: kl_scaling
+    type: float
+    bounds:
+      min: -1
+      max: 1        
+  - name: lr
+    type: float
+    bounds:
+      min: -4
+      max: -2  
+  - name: scheduler_step
+    type: int
+    bounds:
+      min: 1
+      max: 10         
+  - name: warmup
+    type: int
+    bounds:
+      min: 1
+      max: 10              
+metrics:
+  - name: loss
+    objective: minimize
+    strategy: optimize
+sbatch_options:
+  partition: "dev_gpu_4"
+  gres: "gpu:4"
+  ntasks: 4
+  mem-per-gpu: 4000
+  time: "20"
+sigopt_options:
+  dev_run: true # If the dev api of sigopt should be used to get the suggestions
+  project_name: "ParallelAE"
+  client_id: 12332
+  observation_budget: 50 # Max number of trials
+  parallel_bandwidth: 4 # Number of parallel evaluations

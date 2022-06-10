@@ -1,4 +1,4 @@
-name: exp_vae
+name: graph
 channels:
   - pytorch
   - conda-forge
@@ -133,4 +133,51 @@ dependencies:
   - yaml=0.2.5=h516909a_0
   - zlib=1.2.11=h7f8727e_4
   - zstd=1.4.9=haebb681_0
-prefix: /home/kit/iti/ps9220/.conda/envs/vae
+  - pip:
+    - asttokens==2.0.5
+    - backcall==0.2.0
+    - backoff==1.11.1
+    - boto3==1.16.34
+    - botocore==1.19.63
+    - cachetools==5.2.0
+    - click==8.1.3
+    - docker==4.4.4
+    - executing==0.8.3
+    - gitdb==4.0.9
+    - gitpython==3.1.27
+    - google-auth==2.6.6
+    - ipython==8.4.0
+    - isodate==0.6.1
+    - jedi==0.18.1
+    - jmespath==0.10.0
+    - kubernetes==12.0.1
+    - matplotlib-inline==0.1.3
+    - oauthlib==3.2.0
+    - packaging==21.3
+    - parso==0.8.3
+    - pexpect==4.8.0
+    - pickleshare==0.7.5
+    - pint==0.16.1
+    - prompt-toolkit==3.0.29
+    - ptyprocess==0.7.0
+    - pure-eval==0.2.2
+    - pyasn1==0.4.8
+    - pyasn1-modules==0.2.8
+    - pygments==2.12.0
+    - pypng==0.0.21
+    - rdflib==6.1.1
+    - requests-oauthlib==1.3.1
+    - rsa==4.8
+    - s3transfer==0.3.7
+    - smmap==5.0.0
+    - stack-data==0.2.0
+    - torch==1.9.0+cu102
+    - torch-geometric==2.0.3
+    - torch-scatter==2.0.9
+    - torch-sparse==0.6.12
+    - torchaudio==0.9.0
+    - torchvision==0.10.0+cu102
+    - traitlets==5.2.1.post0
+    - wcwidth==0.2.5
+    - websocket-client==1.3.2
+prefix: /home/kit/iti/ps9220/.conda/envs/graph

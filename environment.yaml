@@ -1,4 +1,4 @@
-name: vae
+name: exp_vae
 channels:
   - pytorch
   - conda-forge
